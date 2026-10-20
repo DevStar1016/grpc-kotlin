@@ -31,7 +31,7 @@ jobs:
           cd "${GITHUB_WORKSPACE}"
           "${GITHUB_WORKSPACE}/bin/bazel" run @format//:format.check
       - name: Build
-        uses: nick-invision/retry@v3
+        uses: nick-invision/retry@v4
         with:
           timeout_minutes: 10
           max_attempts: 3
@@ -39,7 +39,7 @@ jobs:
             cd "${GITHUB_WORKSPACE}"
             "${GITHUB_WORKSPACE}/bin/bazel" build //...
       - name: Build --ignore_dev_dependency
-        uses: nick-invision/retry@v3
+        uses: nick-invision/retry@v4
         with:
           timeout_minutes: 10
           max_attempts: 3
@@ -47,7 +47,7 @@ jobs:
             cd "${GITHUB_WORKSPACE}"
             "${GITHUB_WORKSPACE}/bin/bazel" build //... --ignore_dev_dependency
       - name: Test
-        uses: nick-invision/retry@v3
+        uses: nick-invision/retry@v4
         with:
           timeout_minutes: 10
           max_attempts: 3
@@ -55,7 +55,7 @@ jobs:
             cd "${GITHUB_WORKSPACE}"
             "${GITHUB_WORKSPACE}/bin/bazel" test //...
       - name: Test bzl-examples/bzlmod
-        uses: nick-invision/retry@v3
+        uses: nick-invision/retry@v4
         with:
           timeout_minutes: 10
           max_attempts: 3
